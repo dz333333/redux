@@ -3,11 +3,11 @@ import connect from '../store/connect'
 
 
 const Home = (props) => {
-    useEffect(()=>{
-        fetch('/api').then(res=>{
-            console.log(res,'res');
+    useEffect(() => {
+        fetch('/api').then(res => {
+            console.log(res, 'res');
         })
-    },[])
+    }, [])
     return (
         <div>
             home <br />
@@ -25,7 +25,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         add: (num) => {
-            dispatch({ type: 'increament', payload: num })
+            dispatch((dispatch,getState) => { dispatch({ type: 'increament', payload: num }) ;console.log(getState(),'state');})
         },
         reduce: (num) => {
             dispatch({ type: 'decrement', payload: num })

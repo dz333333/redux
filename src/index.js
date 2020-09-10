@@ -5,9 +5,11 @@ import App from './components/App'
 import Provider from './store/Provider'
 import reducer from './store/reducer'
 import applyMiddleware from './store/applyMiddleWares'
+import promise from 'redux-promise'
+import thunk from './store/thunk'
 const store = createStore(
   reducer,
-  applyMiddleware()
+  applyMiddleware(thunk,promise)
 );
 console.log(store.getState().count)   // 1
 
